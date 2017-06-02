@@ -53,9 +53,7 @@ public class SampleNewTest {
 }
   @Test(priority=3, enabled =true)
   public void CreateNewAccount(){
-	  
-	  
-  }
+	    }
   
   
   
