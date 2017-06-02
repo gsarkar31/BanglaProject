@@ -1,5 +1,7 @@
 package ZPracticeProject.ZPracticeProject;
 
+import ZP.ZPracticeProject.HomePage;
+
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 
@@ -13,14 +15,18 @@ import org.openqa.selenium.support.Color;
 import org.testng.annotations.AfterMethod;
 
 public class SampleNewTest {
+	HomePage objHomePage;
 	WebDriver driver;
 	WebElement text, display, style;
 	
   @Test(priority= 1, enabled = false)
   public void LoginValidationWithInvalidEmail() {
 	  
-	    driver.findElement(By.xpath(".//*[@id='header']/div[2]/div/div/nav/div[1]/a")).click();
-		driver.findElement(By.id("email_create")).sendKeys("invalidEmail@email");
+	    //driver.findElement(By.xpath(".//*[@id='header']/div[2]/div/div/nav/div[1]/a")).click();
+		objHomePage = new HomePage(driver);
+		objHomePage.clickSignInLink();
+	  	
+	  	driver.findElement(By.id("email_create")).sendKeys("invalidEmail@email");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.name("SubmitCreate")).click();
 		String color = driver.findElement(By.xpath(".//*[@id='email_create']")).getCssValue("background-color");
@@ -37,7 +43,10 @@ public class SampleNewTest {
   }  
   @Test(priority= 2, enabled = false)
   public void CreateNewAccountWithRegisteredEmail() {
-	  driver.findElement(By.xpath(".//*[@id='header']/div[2]/div/div/nav/div[1]/a")).click();
+	  //driver.findElement(By.xpath(".//*[@id='header']/div[2]/div/div/nav/div[1]/a")).click();
+		objHomePage = new HomePage(driver);
+		objHomePage.clickSignInLink();
+	  
 	  driver.findElement(By.xpath(".//*[@id='email_create']")).sendKeys("rabbani@rabbani.com");
 	  driver.findElement(By.xpath(".//*[@id='SubmitCreate']")).click();
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -53,6 +62,8 @@ public class SampleNewTest {
 }
   @Test(priority=3, enabled =true)
   public void CreateNewAccount(){
+	  
+	  
 	    }
   
   
