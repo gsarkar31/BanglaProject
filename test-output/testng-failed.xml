@@ -6,8 +6,8 @@
       <class name="ZPracticeProject.ZPracticeProject.SampleNewTest">
         <methods>
           <include name="afterMethod"/>
+          <include name="CreateNewAccount"/>
           <include name="beforeMethod"/>
-          <include name="CreateNewAccountWithRegisteredEmail"/>
         </methods>
       </class> <!-- ZPracticeProject.ZPracticeProject.SampleNewTest -->
     </classes>
